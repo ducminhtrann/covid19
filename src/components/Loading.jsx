@@ -1,7 +1,9 @@
 import React from "react";
 
 const Loading = ({ data }) => {
-  const isCaches = data?.ID;
+  console.log("data trong loading: ", data);
+  const isCaches = !!data?.Message;
+  console.log({ isCaches });
   return (
     <div className="loading">
       <div className="dot">

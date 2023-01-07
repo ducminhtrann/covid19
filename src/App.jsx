@@ -10,7 +10,7 @@ import CountryModal from "./components/CountryModal";
 import Loading from "./components/Loading";
 
 function App() {
-  const [summuries, setSummuries] = useState([]);
+  const [summuries, setSummuries] = useState(false);
   const [isFloat, setIsFloat] = useState(false);
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ function App() {
       setLoading(true);
       const res = await getSummary();
       setLoading(false);
-      if (res?.data?.ID) {
+      if (!!res?.data?.ID) {
         const sorted = _.sortBy(res?.data?.Countries, [
           (item) => -item.TotalConfirmed,
           (item) => -item.TotalDeaths,
@@ -56,7 +56,6 @@ function App() {
   }, []);
   const getCountry = async (countryCode) => {
     setLoading(true);
-    console.log(countryCode);
     const data = await getCountryDetail(countryCode);
     setCountry(data?.data?.pop());
     setLoading(false);

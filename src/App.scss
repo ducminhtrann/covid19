@@ -10,6 +10,9 @@
   position: relative;
   padding: 16px 32px;
   background-color: #f3f6f4bb;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   min-height: 100vh;
 }
 .summary {
@@ -61,6 +64,7 @@
     div {
       display: flex;
       justify-content: space-between;
+
     }
   }
   @media screen and (max-width: 1024px) {
@@ -125,9 +129,15 @@
     }
     &--dead {
       color: #cc0000;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
     }
     &--recover {
       color: #274e13;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
     }
   }
   &:hover {
@@ -169,6 +179,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  &__icon {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 }
 
