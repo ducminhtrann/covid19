@@ -5,7 +5,7 @@ import SummaryStatistic from "./components/SummaryStatistic";
 import { MOCK_DATA_COVID19 } from "./const";
 import _ from "lodash";
 import CountryCard from "./components/CountryCard";
-import { AiOutlineArrowUp } from "react-icons/ai";
+import { FaChevronUp } from "react-icons/fa";
 import CountryModal from "./components/CountryModal";
 import Loading from "./components/Loading";
 
@@ -77,7 +77,7 @@ function App() {
         ))}
       </div>
       <div className={`float ${isFloat && "show"}`} onClick={onScrollUp}>
-        <AiOutlineArrowUp className="float__icon" />
+        <FaChevronUp className="float__icon" />
       </div>
       {visible && (
         <CountryModal data={country} onCancel={() => setVisible(false)} />

@@ -1,5 +1,5 @@
 import React from "react";
-import { MdOutlineClose } from "react-icons/md";
+import { FaTimes } from "react-icons/fa";
 import { formatNumber } from "../const";
 
 const CountryModal = ({ data, onCancel }) => {
@@ -11,7 +11,7 @@ const CountryModal = ({ data, onCancel }) => {
             Information of {data?.name?.common}
           </p>
           <span className="modal__head--close" onClick={onCancel}>
-            <MdOutlineClose />
+            <FaTimes />
           </span>
         </div>
         <div className="modal__body">

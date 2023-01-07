@@ -10,6 +10,8 @@
   position: relative;
   padding: 16px 32px;
   background-color: #f3f6f4bb;
+  -webkit-background-color: #f3f6f4bb;
+  -moz-background-color: #f3f6f4bb;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -162,15 +164,15 @@
 
 .float {
   position: fixed;
-  height: 40px;
-  width: 40px;
+  height: 64px;
+  width: 64px;
   background-color: #fefefe;
   right: var(--float);
   bottom: var(--float);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: var(--boxShadow1), var(--boxShadow2);
   cursor: pointer;
   display: none;
