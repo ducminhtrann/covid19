@@ -11,7 +11,7 @@ const CountryModal = ({ data, onCancel }) => {
             Information of {data?.name?.common}
           </p>
           <span className="modal__head--close" onClick={onCancel}>
-            <FaTimes />
+            <FaTimes width={64} height={64} />
           </span>
         </div>
         <div className="modal__body">

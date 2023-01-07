@@ -77,7 +77,7 @@ function App() {
         ))}
       </div>
       <div className={`float ${isFloat && "show"}`} onClick={onScrollUp}>
-        <FaChevronUp className="float__icon" />
+        <FaChevronUp className="float__icon" width={64} height={64} />
       </div>
       {visible && (
         <CountryModal data={country} onCancel={() => setVisible(false)} />
