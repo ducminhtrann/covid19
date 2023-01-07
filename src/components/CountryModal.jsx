@@ -7,9 +7,9 @@ const CountryModal = ({ data, onCancel }) => {
     <div className="modal" onClick={onCancel}>
       <div onClick={(e) => e.stopPropagation()}>
         <div className="modal__head">
-          <h2 className="modal__head--title">
+          <p className="modal__head--title">
             Information of {data?.name?.common}
-          </h2>
+          </p>
           <span className="modal__head--close" onClick={onCancel}>
             <MdOutlineClose />
           </span>
