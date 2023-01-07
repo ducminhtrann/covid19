@@ -1,6 +1,6 @@
 import React from "react";
-import { FaTimes } from "react-icons/fa";
 import { formatNumber } from "../const";
+import close from "../assets/close.png";
 
 const CountryModal = ({ data, onCancel }) => {
   return (
@@ -11,7 +11,7 @@ const CountryModal = ({ data, onCancel }) => {
             Information of {data?.name?.common}
           </p>
           <span className="modal__head--close" onClick={onCancel}>
-            <FaTimes width={64} height={64} />
+            <img src={close} alt="close_modal_icon" />
           </span>
         </div>
         <div className="modal__body">

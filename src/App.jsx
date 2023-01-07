@@ -5,9 +5,9 @@ import SummaryStatistic from "./components/SummaryStatistic";
 import { MOCK_DATA_COVID19 } from "./const";
 import _ from "lodash";
 import CountryCard from "./components/CountryCard";
-import { FaChevronUp } from "react-icons/fa";
 import CountryModal from "./components/CountryModal";
 import Loading from "./components/Loading";
+import up from "./assets/up.png";
 
 function App() {
   const [summuries, setSummuries] = useState(false);
@@ -77,7 +77,7 @@ function App() {
         ))}
       </div>
       <div className={`float ${isFloat && "show"}`} onClick={onScrollUp}>
-        <FaChevronUp className="float__icon" width={64} height={64} />
+        <img src={up} alt="up_icon" />
       </div>
       {visible && (
         <CountryModal data={country} onCancel={() => setVisible(false)} />
