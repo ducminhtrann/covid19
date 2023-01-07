@@ -7,9 +7,7 @@ const CountryModal = ({ data, onCancel }) => {
     <div className="modal" onClick={onCancel}>
       <div onClick={(e) => e.stopPropagation()}>
         <div className="modal__head">
-          <p className="modal__head--title">
-            Information of {data?.name?.common}
-          </p>
+          <p className="modal__head--title">{data?.name?.common}</p>
           <span className="modal__head--close" onClick={onCancel}>
             <img src={close} alt="close_modal_icon" />
           </span>
