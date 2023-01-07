@@ -266,6 +266,7 @@
     &__body {
       &--text {
         flex-direction: column;
+        text-align: center;
         align-items: center;
         gap: 4px;
         span:nth-child(2) {
