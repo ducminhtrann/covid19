@@ -22,8 +22,6 @@ function App() {
       setLoading(true);
       const res = await getSummary();
       console.log("from API: ", res?.data);
-      setIsCaches(!!res?.data?.ID);
-      setLoading(false);
       if (!!res?.data?.ID) {
         const sorted = _.sortBy(res?.data?.Countries, [
           (item) => -item.TotalConfirmed,
@@ -33,16 +31,21 @@ function App() {
         console.log(">>> has ID");
         setSummuries({ ...res?.data, Countries: sorted });
         localStorage.setItem(MOCK_DATA_COVID19, JSON.stringify(res?.data));
+        setIsCaches(false);
+        setLoading(false);
       } else {
         console.log(">>> no ID, find in LocalStorage");
-        const mockData = localStorage.getItem(MOCK_DATA_COVID19 || {});
-        const sorted = _.sortBy(JSON.parse(mockData)?.Countries, [
-          (item) => -item.TotalConfirmed,
-          (item) => -item.TotalDeaths,
-          (item) => +item.TotalRecovered,
-        ]);
-        setIsCaches(!!JSON.parse(mockData)?.ID);
-        setSummuries({ ...JSON.parse(mockData), Countries: sorted });
+        const mockData = localStorage.getItem(MOCK_DATA_COVID19) || "{}";
+        if (!!JSON.parse(mockData)?.ID) {
+          setLoading(false);
+          setIsCaches(false);
+          const sorted = _.sortBy(JSON.parse(mockData)?.Countries, [
+            (item) => -item.TotalConfirmed,
+            (item) => -item.TotalDeaths,
+            (item) => +item.TotalRecovered,
+          ]);
+          setSummuries({ ...JSON.parse(mockData), Countries: sorted });
+        } else setIsCaches(true);
       }
     };
     init();
