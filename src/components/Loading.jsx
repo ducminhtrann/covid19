@@ -1,6 +1,6 @@
 import React from "react";
 
-const Loading = ({ isCaches }) => {
+const Loading = ({ isCaches = false }) => {
   console.log({ isCaches });
   return (
     <div className="loading">

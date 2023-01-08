@@ -62,6 +62,7 @@ function App() {
   }, []);
   const getCountry = async (countryCode) => {
     setLoading(true);
+    setIsCaches(false);
     const data = await getCountryDetail(countryCode);
     setCountry(data?.data?.pop());
     setLoading(false);
