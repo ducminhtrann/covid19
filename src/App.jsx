@@ -10,16 +10,19 @@ import Loading from "./components/Loading";
 import up from "./assets/up.png";
 
 function App() {
-  const [summuries, setSummuries] = useState(false);
+  const [summuries, setSummuries] = useState({});
   const [isFloat, setIsFloat] = useState(false);
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isCaches, setIsCaches] = useState(false);
   const [country, setCountry] = useState({});
   const ref = useRef();
   useEffect(() => {
     const init = async () => {
       setLoading(true);
       const res = await getSummary();
+      console.log("from API: ", res?.data);
+      setIsCaches(!!res?.data?.ID);
       setLoading(false);
       if (!!res?.data?.ID) {
         const sorted = _.sortBy(res?.data?.Countries, [
@@ -27,15 +30,18 @@ function App() {
           (item) => -item.TotalDeaths,
           (item) => +item.TotalRecovered,
         ]);
+        console.log(">>> has ID");
         setSummuries({ ...res?.data, Countries: sorted });
         localStorage.setItem(MOCK_DATA_COVID19, JSON.stringify(res?.data));
       } else {
+        console.log(">>> no ID, find in LocalStorage");
         const mockData = localStorage.getItem(MOCK_DATA_COVID19 || {});
         const sorted = _.sortBy(JSON.parse(mockData)?.Countries, [
           (item) => -item.TotalConfirmed,
           (item) => -item.TotalDeaths,
           (item) => +item.TotalRecovered,
         ]);
+        setIsCaches(!!JSON.parse(mockData)?.ID);
         setSummuries({ ...JSON.parse(mockData), Countries: sorted });
       }
     };
@@ -82,7 +88,7 @@ function App() {
       {visible && (
         <CountryModal data={country} onCancel={() => setVisible(false)} />
       )}
-      {loading && <Loading data={summuries} />}
+      {loading && <Loading isCaches={isCaches} />}
     </div>
   );
 }

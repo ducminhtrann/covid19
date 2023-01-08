@@ -1,8 +1,6 @@
 import React from "react";
 
-const Loading = ({ data }) => {
-  console.log("data trong loading: ", data);
-  const isCaches = !!data?.Message;
+const Loading = ({ isCaches }) => {
   console.log({ isCaches });
   return (
     <div className="loading">
@@ -12,7 +10,7 @@ const Loading = ({ data }) => {
         <div></div>
         <div></div>
       </div>
-      {isCaches && <h2>{data?.Message}</h2>}
+      {isCaches && <h2>Process in caching...</h2>}
     </div>
   );
 };
